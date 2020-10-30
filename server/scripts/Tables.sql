@@ -7,52 +7,28 @@ CREATE TABLE postgres."Workers".DogWalkers
   address VARCHAR ( 200 ) NOT NULL,
   email VARCHAR ( 255 ) UNIQUE NOT NULL,
   occupation VARCHAR (30) unique not NULL,
-  created_on TIMESTAMP NOT NULL
+  timestamp timestamp default current_timestamp
 )
 
-CREATE TABLE postgres."Workers".Plumbers
-(
-  user_id serial PRIMARY KEY,
-  username VARCHAR ( 50 ) UNIQUE NOT NULL,
-  fullnames VARCHAR (150) unique NOT NULL,
-  city VARCHAR (80) unique not NUll,
-  address VARCHAR ( 200 ) NOT NULL,
-  email VARCHAR ( 255 ) UNIQUE NOT NULL,
-  occupation VARCHAR (30) unique not NULL,
-  created_on TIMESTAMP NOT NULL
-)
-CREATE TABLE postgres."Workers".BabySitters
-(
-  user_id serial PRIMARY KEY,
-  username VARCHAR ( 50 ) UNIQUE NOT NULL,
-  fullnames VARCHAR (150) unique NOT NULL,
-  city VARCHAR (80) unique not NUll,
-  address VARCHAR ( 200 ) NOT NULL,
-  email VARCHAR ( 255 ) UNIQUE NOT NULL,
-  occupation VARCHAR (30) unique not NULL,
-  created_on TIMESTAMP NOT NULL
-)
+INSERT INTO postgres."Workers".DogWalkers
+  (username, fullnames, city, address, email, occupation)
+values('Sammy', 'Samantha Stark', 'johannesburg', '233 walter street', 'sammy@gmail.com', 'dogWalker')
 
-CREATE TABLE postgres."Workers".Nannies
-(
-  user_id serial PRIMARY KEY,
-  username VARCHAR ( 50 ) UNIQUE NOT NULL,
-  fullnames VARCHAR (150) unique NOT NULL,
-  city VARCHAR (80) unique not NUll,
-  address VARCHAR ( 200 ) NOT NULL,
-  email VARCHAR ( 255 ) UNIQUE NOT NULL,
-  occupation VARCHAR (30) unique not NULL,
-  created_on TIMESTAMP NOT NULL
-)
 
-CREATE TABLE postgres."Workers".handyMen
+CREATE TABLE postgres."Seekers".Plumbers
 (
   user_id serial PRIMARY KEY,
+  title VARCHAR (30) unique not NULL,
   username VARCHAR ( 50 ) UNIQUE NOT NULL,
-  fullnames VARCHAR (150) unique NOT NULL,
   city VARCHAR (80) unique not NUll,
-  address VARCHAR ( 200 ) NOT NULL,
-  email VARCHAR ( 255 ) UNIQUE NOT NULL,
-  occupation VARCHAR (30) unique not NULL,
-  created_on TIMESTAMP NOT NULL
+  description VARCHAR ( 350 ) NOT NULL,
+  email VARCHAR (80) unique not NUll,
+  province VARCHAR ( 100 ) NOT NULL,
+  timestamp timestamp
+    default current_timestamp
 )
+INSERT INTO postgres."Seekers".Plumbers
+  (title, username, city, email, province)
+values('Plumber', 'Mavetane', 'johannesburg', 'sammy@gmail.com', 'Gauteng')
+
+
