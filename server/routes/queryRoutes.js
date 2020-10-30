@@ -17,24 +17,6 @@ const queryRoutes = (server) => {
       res.sendStatus(500)
     }
   })
-
-
-  // server.get('/queries', function (req, res) {
-  //   pool.connect(process.env.CONNECTION_STRING, function (err, client, done) {
-  //     if (err) {
-  //       return console.error('error fetching client from pool', err)
-  //     }
-  //     client.query('select * from "Workers".handymen', function (err, result) {
-  //       if (err) {
-  //         return console.errror('error runnig query', err);
-  //       }
-  //       res.send(result.rows);
-  //       done();
-  //     })
-
-  //   })
-
-  // })
 }
 
 module.exports = { queryRoutes }
