@@ -16,6 +16,8 @@ function WorkerForm () {
       setWorkerInfo({ ...workerInfo, errors: "Input fields required" })
       return
     } else {
+      setWorkerInfo({ ...workerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
+
       console.log('wokerInfo', workerInfo)
     }
   }
@@ -34,7 +36,18 @@ function WorkerForm () {
     setOccupationStatus(!occupationStatus)
   }
 
-  const { names, city, physicalAddress } = workerInfo;
+  const errorStyle = {
+    color: 'Red',
+    fontSize: 15,
+
+  }
+  const successStyle = {
+    color: 'Green',
+    fontSize: 20
+  }
+
+  const { names, city, physicalAddress, errors, success } = seekerInfo;
+
   return (
     <div>
       <div>
@@ -42,7 +55,12 @@ function WorkerForm () {
           Let's get to know you better as a worker, please fill the form below to make employers understand a little about you.
         </h3>
       </div>
-      <p>{workerInfo.errors}</p>
+      <div>
+        <p style={errorStyle}>{errors}</p>
+      </div>
+      <div>
+        <p style={successStyle}>{success}</p>
+      </div>
       <form onSubmit={onSubmit}>
         <button onClick={toggle}>Title</button><br />
         {!occupationStatus ? null :

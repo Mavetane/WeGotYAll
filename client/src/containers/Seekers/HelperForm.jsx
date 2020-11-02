@@ -16,6 +16,7 @@ function HelperForm () {
       setSeekerInfo({ ...seekerInfo, errors: "Input fields required" })
       return
     } else {
+      setSeekerInfo({ ...seekerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
       console.log('seekerInfo', seekerInfo)
     }
   }
@@ -33,8 +34,17 @@ function HelperForm () {
   const toggle = () => {
     setOccupationStatus(!occupationStatus)
   }
+  const errorStyle = {
+    color: 'Red',
+    fontSize: 15,
 
-  const { expdate, city, province } = seekerInfo;
+  }
+  const successStyle = {
+    color: 'Green',
+    fontSize: 20
+  }
+
+  const { expdate, city, province, errors, success } = seekerInfo;
   return (
     <div>
       <div>
@@ -42,7 +52,12 @@ function HelperForm () {
           Let's get to know you better as an employer, please fill the form below to make employees understand a little about you.
         </h3>
       </div>
-      <p>{seekerInfo.errors}</p>
+      <div>
+        <p style={errorStyle}>{errors}</p>
+      </div>
+      <div>
+        <p style={successStyle}>{success}</p>
+      </div>
       <form onSubmit={onSubmit}>
         <button onClick={toggle}>Title</button><br />
         {!occupationStatus ? null :
