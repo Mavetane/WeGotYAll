@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SeekerDashboard () {
+export function SeekerDashboard () {
   return (
     <div>
       <h1>SeekersDashboard</h1>
@@ -8,4 +8,3 @@ function SeekerDashboard () {
   )
 }
 
-export default SeekerDashboard

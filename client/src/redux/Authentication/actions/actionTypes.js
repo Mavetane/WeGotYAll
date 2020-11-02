@@ -1,0 +1,1 @@
+export const HANDLE_AUTH = "HANDLE_AUTH"

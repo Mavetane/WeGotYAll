@@ -1,6 +1,6 @@
 import React from 'react'
 
-function WorkerDashboard () {
+export function WorkerDashboard () {
   return (
     <div>
       <h1>Workers Dashboard</h1>
@@ -8,4 +8,3 @@ function WorkerDashboard () {
   )
 }
 
-export default WorkerDashboard

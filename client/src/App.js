@@ -1,12 +1,12 @@
 import './App.css';
-import HelperForm from './containers/Seekers/HelperForm'
+import { showRoutes } from './routes/index'
 function App () {
   return (
     <div className="App">
       <header className="App-header">
         WE GOT Y'ALL
       </header>
-      <HelperForm />
+      {showRoutes()}
     </div>
   );
 }

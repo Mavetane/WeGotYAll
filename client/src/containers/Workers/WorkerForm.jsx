@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-function WorkerForm () {
+export function WorkerForm () {
   const [workerInfo, setWorkerInfo] = useState({ names: "", city: "", physicalAddress: "", occupation: "", errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false)
@@ -46,7 +46,7 @@ function WorkerForm () {
     fontSize: 20
   }
 
-  const { names, city, physicalAddress, errors, success } = seekerInfo;
+  const { names, city, physicalAddress, errors, success } = workerInfo;
 
   return (
     <div>
@@ -80,4 +80,3 @@ function WorkerForm () {
   )
 }
 
-export default WorkerForm

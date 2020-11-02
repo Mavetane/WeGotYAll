@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-function HelperForm () {
+export function HelperForm () {
   const [seekerInfo, setSeekerInfo] = useState({ city: "", province: "", occupation: "", expdate: "", errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false)
@@ -77,4 +77,4 @@ function HelperForm () {
   )
 }
 
-export default HelperForm
+
