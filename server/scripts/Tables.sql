@@ -1,3 +1,6 @@
+ALTER TABLE "Workers".nannies RENAME TO maids;
+
+
 CREATE TABLE postgres."Workers".DogWalkers
 (
   user_id serial PRIMARY KEY,

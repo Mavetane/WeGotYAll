@@ -1,11 +1,13 @@
 import './App.css';
+import WorkerForm from './containers/Workers/WorkerForm';
 
 function App () {
   return (
     <div className="App">
       <header className="App-header">
-        We Got Y'ALl
+        WE GOT Y'ALL
       </header>
+      <WorkerForm />
     </div>
   );
 }
