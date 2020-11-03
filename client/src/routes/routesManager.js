@@ -4,10 +4,10 @@ import store from '../redux/store/index';
 import { HANDLE_AUTH } from "../redux/Authentication/actions/actionTypes";
 
 export const checkAuthState = async () => {
-  store.dispatch({
-    type: HANDLE_AUTH,
-    payload: true
-  })
+  // store.dispatch({
+  //   type: HANDLE_AUTH,
+  //   payload: false
+  // })
 }
 
 export const PrivateRoute = ({

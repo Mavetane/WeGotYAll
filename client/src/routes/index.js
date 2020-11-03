@@ -8,7 +8,8 @@ import { HelperForm } from '../containers/Seekers/HelperForm';
 import { SeekerDashboard } from '../containers/Seekers/SeekerDashboard';
 import { SignIn } from '../containers/authentication/SignIn';
 import { SignUp } from '../containers/authentication/SignUp';
-import { LandingPage } from '../containers/LandingPage';
+import { LandingPage } from '../components/LandingPage';
+import { CodeForm } from '../components/CodeForm';
 
 
 
@@ -48,6 +49,10 @@ export const showRoutes = () => {
           exact
           path="/"
           component={props => <LandingPage {...props} />}
+        /><PublicRoute
+          exact
+          path="/verificationform"
+          component={props => <CodeForm {...props} />}
         />
       </div>
     </Router>

@@ -5,11 +5,12 @@ export function HelperForm () {
   const [seekerInfo, setSeekerInfo] = useState({ city: "", province: "", occupation: "", expdate: "", errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false)
-  const handleChange = (e) => {
+
+  const handleChange = e => {
     const { value, name } = e.target;
     setSeekerInfo({ ...seekerInfo, [name]: value })
   }
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     const { expdate, city, province, occupation, errors, success } = seekerInfo;
     e.preventDefault();
     if (expdate == "" || city == "" || province == "" || occupation == "") {
@@ -20,7 +21,7 @@ export function HelperForm () {
       console.log('seekerInfo', seekerInfo)
     }
   }
-  const setOccupation = (e) => {
+  const setOccupation = e => {
     const { name } = e.target
     setCount(count + 1)
     if (count < 1) {
@@ -62,11 +63,16 @@ export function HelperForm () {
         <button onClick={toggle}>Title</button><br />
         {!occupationStatus ? null :
           <div>
-            <input type="checkbox" onClick={setOccupation} value="babysitters" name="babysitters" /><label>BabySitter</label><br />
-            <input type="checkbox" onClick={setOccupation} value="dogwalkers" name="dogwalkers" /><label>DogWalker</label><br />
-            <input type="checkbox" onClick={setOccupation} value="handymen" name="handymen" /><label>HandyMan/HandyWoman</label><br />
-            <input type="checkbox" onClick={setOccupation} value="maids" name="maids" /><label>Maid</label><br />
-            <input type="checkbox" onClick={setOccupation} value="plumbers" name="plumbers" /><label>Plumber</label><br />
+            <input type="checkbox" onClick={setOccupation} value="babysitters" name="babysitters" />
+            <label>BabySitter</label><br />
+            <input type="checkbox" onClick={setOccupation} value="dogwalkers" name="dogwalkers" />
+            <label>DogWalker</label><br />
+            <input type="checkbox" onClick={setOccupation} value="handymen" name="handymen" />
+            <label>HandyMan/HandyWoman</label><br />
+            <input type="checkbox" onClick={setOccupation} value="maids" name="maids" />
+            <label>Maid</label><br />
+            <input type="checkbox" onClick={setOccupation} value="plumbers" name="plumbers" />
+            <label>Plumber</label><br />
           </div>}
         <input type="text" placeholder="Exp date YYYY-MM-DD" name="expdate" value={expdate} onChange={handleChange} /><br />
         <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />

@@ -9,7 +9,7 @@ export function WorkerForm () {
     const { value, name } = e.target;
     setWorkerInfo({ ...workerInfo, [name]: value })
   }
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     const { names, city, physicalAddress, occupation, errors, success } = workerInfo;
     e.preventDefault();
     if (names == "" || city == "" || physicalAddress == "" || occupation == "") {
@@ -21,7 +21,7 @@ export function WorkerForm () {
       console.log('wokerInfo', workerInfo)
     }
   }
-  const setOccupation = (e) => {
+  const setOccupation = e => {
     const { name } = e.target
     setCount(count + 1)
     if (count < 1) {

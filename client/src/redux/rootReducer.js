@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { workersReducer } from './Workers/reducers/workersReducer';
-import { seekersReducer } from './Workers/reducers/workersReducer';
-import { authReducer } from './Workers/reducers/workersReducer';
+import { seekersReducer } from './Seekers/reducers/seekersReducer';
+import { authReducer } from './Authentication/reducers/authReducer';
 
 export const rootReducer = combineReducers({
 
