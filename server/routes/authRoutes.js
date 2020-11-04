@@ -28,7 +28,7 @@ const authRoutes = (server) => {
       res.json({ token })
 
     } catch (e) {
-      console.log(e.message)
+      console.error(e.message)
       res.status(500).send("Server Error")
     }
   })
@@ -48,7 +48,7 @@ const authRoutes = (server) => {
       const token = jwtGenerator(user.rows[0].user_id);
       res.json({ token });
     } catch (e) {
-      console.log(e.message)
+      console.error(e.message)
       res.send("Server Error")
     }
   })

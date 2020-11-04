@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import history from '../routes/history';
-import { saveUser } from '../redux/Authentication/actions/authActions';
+import { signup } from '../redux/Authentication/actions/authActions';
 
 export function CodeForm () {
   const [verifcationCode, setVerificationCode] = useState({ input: undefined, errors: "", success: "" });
@@ -21,7 +21,7 @@ export function CodeForm () {
     if (!code == "") {
       if (code == verifcationCode.input) {
         setVerificationCode({ ...verifcationCode, sucess: "Correct code one last step", errors: "" })
-        dispatch(saveUser(username, email, password))
+        dispatch(signup(user))
         if (!occupationStatus) {
           history.push('/seekerform')
         } else {
