@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
 import history from '../../routes/history';
+import { addPost } from '../../redux/Seekers/actions/seekerActions';
+import { useDispatch } from 'react-redux';
 
 
 export function HelperForm () {
-  const [seekerInfo, setSeekerInfo] = useState({ city: "", province: "", occupation: "", expdate: "", errors: "", success: "" })
+  const [seekerInfo, setSeekerInfo] = useState({ city: "", description: "", province: "", title: "", expdate: "", errors: "", success: "" })
   const [count, setCount] = useState(0);
-  const [occupationStatus, setOccupationStatus] = useState(false)
+  const [occupationStatus, setOccupationStatus] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { value, name } = e.target;
     setSeekerInfo({ ...seekerInfo, [name]: value })
   }
   const onSubmit = e => {
-    const { expdate, city, province, occupation, errors, success } = seekerInfo;
+    const { expdate, city, province, title, description, errors, success } = seekerInfo;
     e.preventDefault();
-    if (expdate == "" || city == "" || province == "" || occupation == "") {
+    if (expdate == "" || city == "" || province == "" || title == "" || description == "") {
       setSeekerInfo({ ...seekerInfo, errors: "Input fields required" })
       return
     } else {
       setSeekerInfo({ ...seekerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
       history.push('/seekerdashboard')
+      dispatch(addPost(seekerInfo))
       console.log('seekerInfo', seekerInfo)
     }
   }
@@ -27,10 +31,10 @@ export function HelperForm () {
     const { name } = e.target
     setCount(count + 1)
     if (count < 1) {
-      seekerInfo.occupation = name
-      return seekerInfo.occupation
+      seekerInfo.title = name
+      return seekerInfo.title
     } else {
-      setSeekerInfo({ ...seekerInfo, errors: "You can only select one occupation at a time, please not that the first occupation will be the one saved on this post, complete this form and start again with a different title ." })
+      setSeekerInfo({ ...seekerInfo, errors: "You can only select one title at a time, please not that the first title will be the one saved on this post, complete this form and start again with a different title ." })
       return
     }
   }
@@ -47,7 +51,7 @@ export function HelperForm () {
     fontSize: 20
   }
 
-  const { expdate, city, province, errors, success } = seekerInfo;
+  const { expdate, city, province, errors, success, description } = seekerInfo;
   return (
     <div>
       <div>
@@ -78,6 +82,7 @@ export function HelperForm () {
           </div>}
         <input type="text" placeholder="Exp date YYYY-MM-DD" name="expdate" value={expdate} onChange={handleChange} /><br />
         <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
+        <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
         <input type="text" placeholder="Physical Address" name="province" value={province} onChange={handleChange} /><br />
         <input type="submit" />
       </form>

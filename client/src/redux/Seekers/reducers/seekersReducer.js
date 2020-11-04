@@ -1,7 +1,7 @@
 import { ADD_SEEKER } from "../actions/actionsTypes";
 
 const initialState = {
-  seeker: [],
+  seeker: null,
 
 
 };
