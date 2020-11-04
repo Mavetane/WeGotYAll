@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const generateCode = (signUpDetails) => {
   return async (dispatch) => {
     try {
@@ -8,6 +10,22 @@ export const generateCode = (signUpDetails) => {
       console.log(e);
     }
   };
+}
+
+export const saveUser = (username, email, password) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`http://localhost:9000/queries?sql=insert into "Authentication/Authorization".users (username, email, password) values('Collenny', 'col@gmail.com', '12345qwerty'))`);
+      console.log('this baby just got fired', data)
+      return data;
+    } catch (e) {
+      dispatch({
+        type: "GET_ERROR",
+        payload: e.response,
+      });
+      console.log(e);
+    }
+  }
 }
 
 

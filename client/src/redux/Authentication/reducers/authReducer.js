@@ -1,9 +1,11 @@
-import { HANDLE_AUTH, SAVE_CODE, ADD_USER } from "../actions/actionTypes";
+import { HANDLE_AUTH, SAVE_CODE, ADD_USER, GET_ERROR } from "../actions/actionTypes";
+
 
 const initialState = {
-  user: [],
+  user: null,
   auth: false,
-  code: null
+  code: null,
+  error: null
 
 };
 
@@ -15,6 +17,8 @@ export const authReducer = (state = initialState, action) => {
       return { state, auth: action.payload }
     case SAVE_CODE:
       return { state, code: action.payload }
+    case GET_ERROR:
+      return { state, error: action.payload }
     default:
       return state;
   }

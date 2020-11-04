@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import history from '../../routes/history';
 
 
 export function HelperForm () {
@@ -18,6 +19,7 @@ export function HelperForm () {
       return
     } else {
       setSeekerInfo({ ...seekerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
+      history.push('/seekerdashboard')
       console.log('seekerInfo', seekerInfo)
     }
   }

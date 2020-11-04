@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 export function SignIn () {
-  const [signInDetails, setSignInDetails] = useState({ email: "", password: "", errors: "", success: "" });
+  const [signInDetails, setSignInDetails] = useState({ email: '', password: '', errors: '', success: '' });
   const { email, password } = signInDetails;
 
   const handleChange = e => {

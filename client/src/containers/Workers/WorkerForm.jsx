@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import history from '../../routes/history';
 
 
 export function WorkerForm () {
@@ -17,7 +18,7 @@ export function WorkerForm () {
       return
     } else {
       setWorkerInfo({ ...workerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
-
+      history.push('/workerdashboard')
       console.log('wokerInfo', workerInfo)
     }
   }
