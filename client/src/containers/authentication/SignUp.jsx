@@ -23,9 +23,9 @@ export function SignUp () {
     <div>
       <h1>SignUp</h1>
       <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Username" onChange={handleChange} value={username} name="username" />
-        <input type="email" placeholder="Email" onChange={handleChange} value={email} name="email" />
-        <input type="password" placeholder="Password" onChange={handleChange} value={password} name="password" />
+        <input type="text" placeholder="Username" onChange={handleChange} value={username} name="username" /><br />
+        <input type="email" placeholder="Email" onChange={handleChange} value={email} name="email" /><br />
+        <input type="password" placeholder="Password" onChange={handleChange} value={password} name="password" /><br />
         <input type="submit" />
       </form>
     </div>
