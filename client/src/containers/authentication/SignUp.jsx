@@ -5,7 +5,7 @@ import history from '../../routes/history';
 
 
 export function SignUp () {
-  const [signUpDetails, setSignUpDetails] = useState({ username: 'mavetane', email: 'df@kd', password: '123', errors: "", success: "" });
+  const [signUpDetails, setSignUpDetails] = useState({ username: '', email: '', password: '', errors: "", success: "" });
   const dispatch = useDispatch();
 
   const handleChange = e => {
