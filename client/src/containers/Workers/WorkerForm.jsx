@@ -2,11 +2,12 @@ import { addWorkerPost } from '../../redux/Workers/actions/workerActions'
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import history from '../../routes/history';
+import { getSeekerData } from '../../redux/Workers/actions/workerActions'
 
 
 export function WorkerForm () {
   const dispatch = useDispatch()
-  const [workerInfo, setWorkerInfo] = useState({ names: '', city: '', province: '', physicalAddress: '', title: '', description: ``, errors: "", success: "" })
+  const [workerInfo, setWorkerInfo] = useState({ names: '', city: '', province: '', physicalAddress: '', occupation: '', description: ``, errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false);
 
@@ -15,13 +16,14 @@ export function WorkerForm () {
     setWorkerInfo({ ...workerInfo, [name]: value })
   }
   const onSubmit = e => {
-    const { names, city, physicalAddress, title, province, errors, success } = workerInfo;
+    const { names, city, physicalAddress, occupation, province, errors, success } = workerInfo;
     e.preventDefault();
-    if (names == "" || city == "" || physicalAddress == "" || title == "" || province == "") {
+    if (names == "" || city == "" || physicalAddress == "" || occupation == "" || province == "") {
       setWorkerInfo({ ...workerInfo, errors: "Input fields required" })
       return
     } else {
       dispatch(addWorkerPost(workerInfo))
+      dispatch(getSeekerData(occupation))
       setWorkerInfo({ ...workerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
       history.push('/workerdashboard')
     }
@@ -30,10 +32,10 @@ export function WorkerForm () {
     const { name } = e.target
     setCount(count + 1)
     if (count < 1) {
-      workerInfo.title = name
-      return workerInfo.title
+      workerInfo.occupation = name
+      return workerInfo.occupation
     } else {
-      setWorkerInfo({ ...workerInfo, errors: "You can only select one title at a time, please not that the first title will be the one saved on this post, complete this form and start again with a different title ." })
+      setWorkerInfo({ ...workerInfo, errors: "You can only select one occupation at a time, please not that the first occupation will be the one saved on this post, complete this form and start again with a different occupation ." })
       return
     }
   }
@@ -51,7 +53,7 @@ export function WorkerForm () {
     fontSize: 20
   }
 
-  const { names, city, physicalAddress, description, province, title, errors, success } = workerInfo;
+  const { names, city, physicalAddress, description, province, occupation, errors, success } = workerInfo;
 
   return (
     <div>

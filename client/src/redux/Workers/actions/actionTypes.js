@@ -1,1 +1,2 @@
 export const ADD_WORKER = "ADD_WORKER"
+export const GET_SEEKER_DATA = "GET_SEEKER_DATA"

@@ -5,7 +5,7 @@ const initialState = {
   user: null,
   code: null,
   isAuthorized: false,
-  error: { error: null }
+  error: { error: "" }
 
 };
 

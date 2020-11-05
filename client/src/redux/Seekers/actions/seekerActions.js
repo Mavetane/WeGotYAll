@@ -6,9 +6,9 @@ export const addPost = (postData) => {
   const newEmail = store.getState().auth.state.user.email;
 
   return async (dispatch) => {
-    const table = postData.title;
+    const table = postData.occupation;
     const sanitizedPost = {
-      title: postData.title,
+      occupation: postData.occupation,
       username: name,
       city: postData.city,
       description: postData.description,
@@ -16,9 +16,21 @@ export const addPost = (postData) => {
       province: postData.province
     }
     try {
-      const { title, username, city, description, email, province } = sanitizedPost
-      console.log('sanitizedPost', sanitizedPost, table)
-      return await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Seekers".${table} (title, username, city,description, email, province) values('${title}','${username}','${city}','${description}','${email}','${province}')`)
+      const { occupation, username, city, description, email, province } = sanitizedPost
+      const { data } = await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Seekers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
+      dispatch({ type: "ADD_SEEKER_POST", payload: sanitizedPost })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
+export const getWorkerData = (tableName) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`http://localhost:9000/queries?sql=SELECT * FROM "Workers".${tableName}`);
+      console.log('data', data)
+      dispatch({ type: "GET_INFO", payload: data })
     } catch (e) {
       console.log(e)
     }

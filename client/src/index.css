@@ -1,0 +1,70 @@
+.homepage-header>button {
+  display: flex;
+}
+
+.App-header {
+  background-color: #e66123;
+  min-height: 9vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+  font-family: 'Paytone One', sans-serif;
+}
+
+.log-div>a {
+  padding: 5%;
+  font-size: 20px;
+  color: white;
+}
+
+.log-div>a:hover {
+  padding: 5%;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.log-div {
+  display: flex;
+  padding-left: 50%;
+}
+
+.signin-wrapper {
+  margin-top: 8%;
+}
+
+.homepage-header {
+  background-color: #e66123;
+  min-height: 9vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+  font-family: 'Paytone One', sans-serif;
+}
+
+.home-div {
+  display: flex;
+  padding-left: 50%;
+}
+
+.home-div>a {
+  padding: 5%;
+  font-size: 18px;
+  color: white;
+}
+
+.home-div>a:hover {
+  padding: 5%;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.774);
+  cursor: pointer;
+}
+
+.home {
+  padding: 0% 85% 0% 0%;
+}

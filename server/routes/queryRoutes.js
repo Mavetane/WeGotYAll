@@ -10,7 +10,8 @@ const queryRoutes = (server) => {
       const newPool = await pool;
       const results = await newPool.query(`${sql}`);
       res.send(results.rows);
-      res.sendStatus(200)
+      res.sendStatus(200);
+      res.json({ results })
     } catch (e) {
       console.log(e.message)
       res.sendStatus(500)

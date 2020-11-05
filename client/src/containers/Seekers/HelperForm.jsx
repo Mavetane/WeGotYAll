@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import history from '../../routes/history';
-import { addPost } from '../../redux/Seekers/actions/seekerActions';
+import { addPost, getWorkerData } from '../../redux/Seekers/actions/seekerActions';
 import { useDispatch } from 'react-redux';
 
 
 
 export function HelperForm () {
-  const [seekerInfo, setSeekerInfo] = useState({ city: '', description: '', province: '', title: '', expdate: '', errors: "", success: "" })
+  const [seekerInfo, setSeekerInfo] = useState({ city: '', description: '', province: '', occupation: '', expdate: '', errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false);
   const dispatch = useDispatch();
@@ -16,26 +16,26 @@ export function HelperForm () {
     setSeekerInfo({ ...seekerInfo, [name]: value })
   }
   const onSubmit = e => {
-    const { expdate, city, province, title, description, errors, success } = seekerInfo;
+    const { expdate, city, province, occupation, description, errors, success } = seekerInfo;
     e.preventDefault();
-    if (expdate == "" || city == "" || province == "" || title == "" || description == "") {
+    if (expdate == "" || city == "" || province == "" || occupation == "" || description == "") {
       setSeekerInfo({ ...seekerInfo, errors: "Input fields required" })
       return
     } else {
       setSeekerInfo({ ...seekerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
       history.push('/seekerdashboard')
       dispatch(addPost(seekerInfo))
-      console.log('seekerInfo', seekerInfo)
+      dispatch(getWorkerData(occupation))
     }
   }
   const setOccupation = e => {
     const { name } = e.target
     setCount(count + 1)
     if (count < 1) {
-      seekerInfo.title = name
-      return seekerInfo.title
+      seekerInfo.occupation = name
+      return seekerInfo.occupation
     } else {
-      setSeekerInfo({ ...seekerInfo, errors: "You can only select one title at a time, please not that the first title will be the one saved on this post, complete this form and start again with a different title ." })
+      setSeekerInfo({ ...seekerInfo, errors: "You can only select one occupation at a time, please not that the first occupation will be the one saved on this post, complete this form and start again with a different occupation ." })
       return
     }
   }
@@ -59,7 +59,8 @@ export function HelperForm () {
         <p style={successStyle}>{success}</p>
       </div>
       <form onSubmit={onSubmit}>
-        <button onClick={toggle}>Title</button><br />
+        <p>Select the category of the employee you seek below</p>
+        <button onClick={toggle}>Occupation</button><br />
         {!occupationStatus ? null :
           <div>
             <input type="checkbox" onClick={setOccupation} value="babysitters" name="babysitters" />
