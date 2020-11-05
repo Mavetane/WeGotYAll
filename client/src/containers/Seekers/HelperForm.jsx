@@ -4,8 +4,9 @@ import { addPost } from '../../redux/Seekers/actions/seekerActions';
 import { useDispatch } from 'react-redux';
 
 
+
 export function HelperForm () {
-  const [seekerInfo, setSeekerInfo] = useState({ city: 'Midrand', description: 'ipsom lora dora lore', province: 'Gauteng', title: 'babysitters', expdate: '2021-12-30', errors: "", success: "" })
+  const [seekerInfo, setSeekerInfo] = useState({ city: '', description: '', province: '', title: '', expdate: '', errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false);
   const dispatch = useDispatch();
@@ -41,15 +42,7 @@ export function HelperForm () {
   const toggle = () => {
     setOccupationStatus(!occupationStatus)
   }
-  const errorStyle = {
-    color: 'Red',
-    fontSize: 15,
 
-  }
-  const successStyle = {
-    color: 'Green',
-    fontSize: 20
-  }
 
   const { expdate, city, province, errors, success, description } = seekerInfo;
   return (
@@ -91,3 +84,12 @@ export function HelperForm () {
 }
 
 
+export const errorStyle = {
+  color: 'Red',
+  fontSize: 15,
+
+}
+export const successStyle = {
+  color: 'Green',
+  fontSize: 20
+}

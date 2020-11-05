@@ -16,8 +16,8 @@ export function CodeForm () {
   }
   const onSubmit = e => {
     const { username, email, password } = user
-    console.log(code, Number(verifcationCode.input))
     e.preventDefault();
+    console.log('hooray', code)
     if (!code == "") {
       if (code == verifcationCode.input) {
         setVerificationCode({ ...verifcationCode, sucess: "Correct code one last step", errors: "" })
@@ -41,7 +41,7 @@ export function CodeForm () {
   return (
     <div>
       <div>
-        <h2>Welcome {user.username}, You're almost there! Open your mail and copy the verification code. Remeber to check your spam folder</h2>
+        <h2>Welcome You're almost there! Open your mail and copy the verification code. Remeber to check your spam folder</h2>
       </div>
       <div>
         <label>{verifcationCode.success}</label>
@@ -53,7 +53,7 @@ export function CodeForm () {
         <label>Looking for Work?</label>
       </div>
 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(e) => onSubmit(e)}>
         <input type="number" onChange={handleChange} value={verifcationCode.input} name="input" placeholder="Your code here " />
         <input type="submit" />
       </form>

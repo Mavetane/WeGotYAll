@@ -3,7 +3,11 @@ import React from 'react'
 export function SeekerDashboard () {
   return (
     <div>
-      <h1>SeekersDashboard</h1>
+      <header>
+        <h1>SeekersDashboard</h1>
+        <a href="/dashboard">Home</a>
+      </header>
+
     </div>
   )
 }

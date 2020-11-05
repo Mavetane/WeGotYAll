@@ -1,7 +1,7 @@
 import React from "react";
 import { Router } from 'react-router-dom';
 import history from "./history";
-import { PublicRoute } from '../routes/routesManager';
+import { PublicRoute, PrivateRoute } from '../routes/routesManager';
 import { WorkerForm } from '../containers/Workers/WorkerForm';
 import { WorkerDashboard } from '../containers/Workers/WorkerDashboard';
 import { HelperForm } from '../containers/Seekers/HelperForm';
@@ -10,6 +10,8 @@ import { SignIn } from '../containers/authentication/SignIn';
 import { SignUp } from '../containers/authentication/SignUp';
 import { LandingPage } from '../components/LandingPage';
 import { CodeForm } from '../components/CodeForm';
+import { HomePage } from '../components/HomePage';
+
 
 
 
@@ -36,7 +38,12 @@ export const showRoutes = () => {
           exact
           path="/seekerdashboard"
           component={props => <SeekerDashboard {...props} />}
-        /> <PublicRoute
+        />
+        <PublicRoute
+          exact
+          path="/dashboard"
+          component={props => <HomePage {...props} />}
+        /><PublicRoute
           exact
           path="/workerform"
           component={props => <WorkerForm {...props} />}

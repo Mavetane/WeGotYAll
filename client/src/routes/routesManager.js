@@ -1,13 +1,20 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 import store from '../redux/store/index';
-import { HANDLE_AUTH } from "../redux/Authentication/actions/actionTypes";
+import { HANDLE_AUTH, ADD_USER } from "../redux/Authentication/actions/actionTypes";
 
 export const checkAuthState = async () => {
-  // store.dispatch({
-  //   type: HANDLE_AUTH,
-  //   payload: false
-  // })
+  var token = localStorage.getItem('token');
+  if (token) {
+    const decodedToken = jwtDecode(token)
+    store.dispatch({ type: ADD_USER, payload: decodedToken })
+    store.dispatch({
+      type: HANDLE_AUTH,
+      payload: true
+    })
+  }
 }
 
 export const PrivateRoute = ({
@@ -21,7 +28,7 @@ export const PrivateRoute = ({
         props => store.getState().isAuthorized ? (
           <Component {...rest} {...props} />
         ) : (
-            <Redirect to="/register" />
+            <Redirect to="/dashboard" />
           )
       } />
   );
