@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import history from '../routes/history';
 import { signup } from '../redux/Authentication/actions/authActions';
 
+
 export function CodeForm () {
   const [verifcationCode, setVerificationCode] = useState({ input: undefined, errors: "", success: "" });
   const code = useSelector(state => state.auth.state.code);
@@ -14,14 +15,16 @@ export function CodeForm () {
     const { name, value } = e.target;
     setVerificationCode({ ...verifcationCode, [name]: value })
   }
+
   const onSubmit = e => {
-    const { username, email, password } = user
     e.preventDefault();
-    console.log('hooray', code)
+
+    const { username, email, password } = user
+
     if (!code == "") {
       if (code == verifcationCode.input) {
-        setVerificationCode({ ...verifcationCode, sucess: "Correct code one last step", errors: "" })
         dispatch(signup(user))
+        setVerificationCode({ ...verifcationCode, sucess: "Correct code one last step", errors: "" })
         if (!occupationStatus) {
           history.push('/seekerform')
         } else {
