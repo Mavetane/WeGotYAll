@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import history from '../../routes/history';
 import { addPost, getWorkerData } from '../../redux/Seekers/actions/seekerActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 export function HelperForm () {
-  const [seekerInfo, setSeekerInfo] = useState({ city: '', description: '', province: '', occupation: '', expdate: '', errors: "", success: "" })
+  const [seekerInfo, setSeekerInfo] = useState({ email: '', city: '', description: '', province: '', occupation: '', expdate: '', errors: "", success: "" })
   const [count, setCount] = useState(0);
   const [occupationStatus, setOccupationStatus] = useState(false);
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export function HelperForm () {
   }
 
 
-  const { expdate, city, province, errors, success, description } = seekerInfo;
+  const { expdate, occupation, city, province, errors, success, description } = seekerInfo;
   return (
     <div>
       <div>
@@ -52,34 +52,36 @@ export function HelperForm () {
           Let's get to know you better as an employer, please fill the form below to make employees understand a little about you.
         </h3>
       </div>
-      <div>
-        <p style={errorStyle}>{errors}</p>
-      </div>
-      <div>
-        <p style={successStyle}>{success}</p>
-      </div>
-      <form onSubmit={onSubmit}>
-        <p>Select the category of the employee you seek below</p>
-        <button onClick={toggle}>Occupation</button><br />
-        {!occupationStatus ? null :
+      <div className="div">
+        <form onSubmit={onSubmit}>
+          <p>Select the category of the employee you seek below</p>
+          <button onClick={toggle}>Occupation</button><br />
+          {!occupationStatus ? null :
+            <div>
+              <input type="checkbox" onClick={setOccupation} value={occupation} name="babysitters" />
+              <label>BabySitter</label><br />
+              <input type="checkbox" onClick={setOccupation} value={occupation} name="dogwalkers" />
+              <label>DogWalker</label><br />
+              <input type="checkbox" onClick={setOccupation} value={occupation} name="handymen" />
+              <label>HandyMan/HandyWoman</label><br />
+              <input type="checkbox" onClick={setOccupation} value={occupation} name="maids" />
+              <label>Maid</label><br />
+              <input type="checkbox" onClick={setOccupation} value={occupation} name="plumbers" />
+              <label>Plumber</label><br />
+            </div>}
           <div>
-            <input type="checkbox" onClick={setOccupation} value="babysitters" name="babysitters" />
-            <label>BabySitter</label><br />
-            <input type="checkbox" onClick={setOccupation} value="dogwalkers" name="dogwalkers" />
-            <label>DogWalker</label><br />
-            <input type="checkbox" onClick={setOccupation} value="handymen" name="handymen" />
-            <label>HandyMan/HandyWoman</label><br />
-            <input type="checkbox" onClick={setOccupation} value="maids" name="maids" />
-            <label>Maid</label><br />
-            <input type="checkbox" onClick={setOccupation} value="plumbers" name="plumbers" />
-            <label>Plumber</label><br />
-          </div>}
-        <input type="text" placeholder="Exp date YYYY-MM-DD" name="expdate" value={expdate} onChange={handleChange} /><br />
-        <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
-        <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
-        <input type="text" placeholder="Physical Address" name="province" value={province} onChange={handleChange} /><br />
-        <input type="submit" />
-      </form>
+            <p style={errorStyle}>{errors}</p>
+          </div>
+          <div>
+            <p style={successStyle}>{success}</p>
+          </div>
+          <input type="text" placeholder="Exp date YYYY-MM-DD" name="expdate" value={expdate} onChange={handleChange} /><br />
+          <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
+          <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
+          <input type="text" placeholder="Physical Address" name="province" value={province} onChange={handleChange} /><br />
+          <input type="submit" />
+        </form>
+      </div>
     </div>
   )
 }

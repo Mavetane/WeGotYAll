@@ -82,7 +82,7 @@ export function WorkerForm () {
         <input type="text" placeholder="Full names" name="names" value={names} onChange={handleChange} /><br />
         <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
         <input type="text" placeholder="Physical Address" name="physicalAddress" value={physicalAddress} onChange={handleChange} /><br />
-        <input type="text" placeholder="Province" name="province" value={province} onChange={handleChange} />
+        <input type="text" placeholder="Province" name="province" value={province} onChange={handleChange} /><br />
         <input type="submit" />
       </form>
     </div>

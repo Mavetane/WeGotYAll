@@ -48,15 +48,16 @@ export function CodeForm () {
         <label>{verifcationCode.errors}</label>
       </div>
       <div>
-        <p>Help us set your platform before you get there, clik on the box if you are looking for a job or leave it blank if your looking for help.</p>
+        <h3>Help us set your platform before you get there, clik on the box if you are looking for a job or leave it blank if your looking for help.</h3>
         <input type="checkbox" onClick={handleOccupation} />
-        <label>Looking for Work?</label>
+        <h4>Looking for Work?</h4>
       </div>
-
-      <form onSubmit={(e) => onSubmit(e)}>
-        <input type="number" onChange={handleChange} value={verifcationCode.input} name="input" placeholder="Your code here " />
-        <input type="submit" />
-      </form>
+      <div className="div">
+        <form onSubmit={(e) => onSubmit(e)}>
+          <input type="number" onChange={handleChange} value={verifcationCode.input} name="input" placeholder="Your code here " />
+          <input type="submit" />
+        </form>
+      </div>
     </div>
   )
 }

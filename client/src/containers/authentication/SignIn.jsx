@@ -36,7 +36,7 @@ export function SignIn () {
           <p style={errorStyle}>{errors}</p>
           <p style={errorStyle}>{backEndError !== "Password or email is incorrect" ? null : `${backEndError}`}</p>
         </div>
-        <div className="signin-form">
+        <div className="div">
           <form onSubmit={onSubmit} >
             <input type="email" placeholder="Email" value={email} onChange={handleChange} name="email" /><br />
             <input type="password" placeholder="Password" value={password} onChange={handleChange} name="password" /><br />

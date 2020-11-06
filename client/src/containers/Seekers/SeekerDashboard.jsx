@@ -5,7 +5,6 @@ import { sendEmail } from '../../redux/Authentication/actions/authActions';
 export function SeekerDashboard () {
   const workersInfo = useSelector(state => state.seekers.workersInfo);
   const seekerEmail = useSelector(state => state.seekers.seekerPost.email)
-  const dispatch = useDispatch();
 
 
   console.log('seekerEmail', seekerEmail)
@@ -23,9 +22,11 @@ export function SeekerDashboard () {
   console.log('workersInfo', workersInfo)
   return (
     <div>
-      <header>
-        <h1>SeekersDashboard</h1>
-        <a href="/dashboard">Home</a>
+      <header className="App-header">
+        <div className="home-div">
+          <a href="/dashboard">Home</a>
+          <a href="/">LogOut</a>
+        </div>
       </header>
       <div style={{ border: 'insert' }}>
         {workers()}

@@ -9,10 +9,7 @@ export function HomePage () {
   return (
     <div>
       <header className="homepage-header">
-        <div className="home">
-          HOME
-        </div>
-        Home Page
+        Home
         <div className="home-div">
           <a href="/workerdashboard">SearchJobs</a>
           <a href="/seekerform">SeekWorker</a>
