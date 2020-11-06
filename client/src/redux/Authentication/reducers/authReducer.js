@@ -14,13 +14,13 @@ export const authReducer = (state = initialState, action) => {
     case ADD_USER:
       return { state, user: action.payload }
     case HANDLE_AUTH:
-      return { state, isAuthorized: action.payload }
+      return { ...state, isAuthorized: action.payload }
     case SAVE_CODE:
-      return { state, code: action.payload }
+      return { ...state, code: action.payload }
     case LOG_OUT:
-      return { state, user: null }
+      return { ...state, user: null }
     case GET_ERROR:
-      return { state, error: action.payload }
+      return { ...state, error: action.payload }
     default:
       return state;
   }
