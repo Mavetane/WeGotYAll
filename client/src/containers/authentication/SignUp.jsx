@@ -33,7 +33,7 @@ export function SignUp () {
       </div>
       <div className="div">
         <form onSubmit={onSubmit}>
-          <label for="fname">Email</label>
+          <label for="fname">Username</label>
           <input type="text" placeholder="Username" onChange={handleChange} value={username} name="username" />
 
           <label for="lname">Email</label>

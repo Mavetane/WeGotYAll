@@ -11,7 +11,7 @@ export function HomePage () {
       <header className="homepage-header">
         Home
         <div className="home-div">
-          <a href="/workerdashboard">SearchJobs</a>
+          <a href="/workerform">SearchJobs</a>
           <a href="/seekerform">SeekWorker</a>
           <a onClick={handleLogOut}>LogOut</a>
         </div>

@@ -4,7 +4,7 @@ import { sendEmail } from '../../redux/Authentication/actions/authActions';
 
 export function WorkerDashboard () {
   const seekersInfo = useSelector(state => state.workers.seekersData);
-  const workerEmail = useSelector(state => state.auth.state.user.email)
+  const workerEmail = useSelector(state => state.auth)
 
 
   const seekers = () => seekersInfo.map(worker => <div key={worker.user_id}>
