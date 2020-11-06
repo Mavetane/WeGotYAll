@@ -4,7 +4,23 @@ import jwtDecode from "jwt-decode";
 import { LOG_OUT, HANDLE_AUTH, ADD_USER, GET_ERROR, SAVE_CODE } from './actionTypes';
 import emailjs from 'emailjs-com';
 
-
+export const sendEmail = (templateId, senderEmail, receiverEmail, feedback, user) => {
+  console.log("HIIII THEREE!")
+  emailjs.send(
+    'service_xz1xdyb',
+    templateId,
+    {
+      senderEmail,
+      receiverEmail,
+      feedback
+    },
+    user
+  )
+    .then(res => {
+      console.log('Email sent')
+      alert("Email sent, check your mail")
+    })
+}
 export const generateCode = (signUpDetails) => {
   return async (dispatch) => {
     try {
@@ -19,20 +35,7 @@ export const generateCode = (signUpDetails) => {
         user: 'user_N17JPIiunsJWIe7FD2eQd'
       }
       const { templateId, senderEmail, receiverEmail, feedback, user } = emailData;
-      console.log("HIIII THEREE!")
-      emailjs.send(
-        'service_xz1xdyb',
-        templateId,
-        {
-          senderEmail,
-          receiverEmail,
-          feedback
-        },
-        user
-      )
-        .then(res => {
-          console.log('Email sent')
-        })
+      sendEmail(templateId, senderEmail, receiverEmail, feedback, user)
     } catch (e) {
       console.log(e);
     }
