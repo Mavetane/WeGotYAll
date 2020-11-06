@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-import store from '../redux/store/index';
+import { store } from '../redux/store/index';
 import { HANDLE_AUTH, ADD_USER } from "../redux/Authentication/actions/actionTypes";
 
 export const checkAuthState = async () => {
