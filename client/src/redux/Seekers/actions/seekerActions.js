@@ -19,7 +19,7 @@ export const addPost = (postData) => {
     try {
       const { occupation, username, city, description, email, province } = sanitizedPost
       console.log('sanitizedPost', sanitizedPost)
-      const { data } = await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Seekers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
+      const { data } = await axios.get(`/queries?sql=INSERT INTO "Seekers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
       dispatch({ type: "ADD_SEEKER_POST", payload: sanitizedPost })
       reloadWindow()
     } catch (e) {
@@ -31,7 +31,7 @@ export const addPost = (postData) => {
 export const getWorkerData = (tableName) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`http://localhost:9000/queries?sql=SELECT * FROM "Workers".${tableName}`);
+      const { data } = await axios.get(`/queries?sql=SELECT * FROM "Workers".${tableName}`);
       console.log('data', data)
       dispatch({ type: "GET_INFO", payload: data })
     } catch (e) {

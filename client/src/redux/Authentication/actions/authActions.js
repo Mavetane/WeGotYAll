@@ -60,7 +60,7 @@ export const signup = (signUpDetails) => {
   }
   return async (dispatch) => {
     try {
-      const { data } = await axios.post('http://localhost:9000/signup', { ...sanitizedDetails })
+      const { data } = await axios.post('/signup', { ...sanitizedDetails })
       const decodedToken = jwtDecode(data.token)
       console.log("decodeToken", data)
       dispatch({ type: "ADD_EMAIL", payload: data.info })
@@ -81,7 +81,7 @@ export const signup = (signUpDetails) => {
 export const signin = (loginDetails) => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('http://localhost:9000/signin', loginDetails)
+      const { data } = await axios.post('/signin', loginDetails)
       if (!data.token) {
         dispatch({ type: GET_ERROR, payload: data })
         return
