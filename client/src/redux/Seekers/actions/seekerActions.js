@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { store } from '../../store';
+import { reloadWindow } from '../../Workers/actions/workerActions'
 
 export const addPost = (postData) => {
-  const name = store.getState().auth.state.user.username
-  const newEmail = store.getState().auth.state.user.email
+  const name = store.getState().auth.user.username
+  const newEmail = store.getState().auth.user.email
 
   return async (dispatch) => {
     const table = postData.occupation;
@@ -20,6 +21,7 @@ export const addPost = (postData) => {
       console.log('sanitizedPost', sanitizedPost)
       const { data } = await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Seekers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
       dispatch({ type: "ADD_SEEKER_POST", payload: sanitizedPost })
+      reloadWindow()
     } catch (e) {
       console.log(e)
     }

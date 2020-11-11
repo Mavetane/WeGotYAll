@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { sendEmail } from '../../redux/Authentication/actions/authActions';
 
+
 export function SeekerDashboard () {
   const workersInfo = useSelector(state => state.seekers.workersInfo);
-  const seekerEmail = useSelector(state => state.seekers.seekerPost.email)
+  const seekerEmail = useSelector(state => state.auth.user.userEmail)
 
 
   console.log('seekerEmail', seekerEmail)

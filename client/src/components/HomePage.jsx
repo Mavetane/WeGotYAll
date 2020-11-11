@@ -1,11 +1,14 @@
 import React from 'react'
 import { logout } from '../redux/Authentication/actions/authActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 export function HomePage () {
   const dispatch = useDispatch();
+  const userInfo = useSelector(state => state)
   const handleLogOut = () => {
     dispatch(logout())
   }
+  console.log('userInfo', userInfo)
   return (
     <div>
       <header className="homepage-header">
@@ -16,6 +19,7 @@ export function HomePage () {
           <a onClick={handleLogOut}>LogOut</a>
         </div>
       </header>
+
     </div>
   )
 }

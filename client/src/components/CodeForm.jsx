@@ -5,7 +5,7 @@ import { signup } from '../redux/Authentication/actions/authActions';
 
 export function CodeForm () {
   const [verifcationCode, setVerificationCode] = useState({ input: undefined, errors: "", success: "" });
-  const code = useSelector(state => state.auth.state.code);
+  const code = useSelector(state => state.auth.code);
   const user = useSelector(state => state.auth.user);
   const dispatch = useDispatch();
   const [occupationStatus, setOccupationStatus] = useState(false);

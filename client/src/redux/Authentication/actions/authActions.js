@@ -5,7 +5,6 @@ import { LOG_OUT, HANDLE_AUTH, ADD_USER, GET_ERROR, SAVE_CODE } from './actionTy
 import emailjs from 'emailjs-com';
 
 export const sendEmail = (templateId, senderEmail, receiverEmail, feedback, user) => {
-  console.log("HIIII THEREE!")
   emailjs.send(
     'service_xz1xdyb',
     templateId,
@@ -35,7 +34,8 @@ export const generateCode = (signUpDetails) => {
         user: 'user_N17JPIiunsJWIe7FD2eQd'
       }
       const { templateId, senderEmail, receiverEmail, feedback, user } = emailData;
-      sendEmail(templateId, senderEmail, receiverEmail, feedback, user)
+      console.log("Email Sent")
+      // sendEmail(templateId, senderEmail, receiverEmail, feedback, user)
     } catch (e) {
       console.log(e);
     }
@@ -60,8 +60,9 @@ export const signup = (signUpDetails) => {
     try {
       const { data } = await axios.post('http://localhost:9000/signup', { ...sanitizedDetails })
       const decodedToken = jwtDecode(data.token)
-      console.log("decodeToken", decodedToken)
-      dispatch({ type: "ADD_USER", payload: decodedToken })
+      console.log("decodeToken", data)
+      dispatch({ type: "ADD_EMAIL", payload: data.info })
+      dispatch({ type: "ADD_TOKEN", payload: decodedToken })
       dispatch({ type: "HANDLE_AUTH", payload: true })
       localStorage.setItem("token", data.token)
     } catch (e) {
@@ -84,8 +85,9 @@ export const signin = (loginDetails) => {
         return
       }
       const decodedToken = jwtDecode(data.token)
-      dispatch({ type: "ADD_USER", payload: decodedToken })
+      dispatch({ type: "ADD_TOKEN", payload: decodedToken })
       dispatch({ type: "HANDLE_AUTH", payload: true })
+      dispatch({ type: "ADD_EMAIL", payload: data.info })
       localStorage.setItem("token", data.token)
       history.push('/dashboard')
     } catch (e) {

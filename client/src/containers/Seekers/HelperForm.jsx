@@ -4,7 +4,6 @@ import { addPost, getWorkerData } from '../../redux/Seekers/actions/seekerAction
 import { useDispatch, useSelector } from 'react-redux';
 
 
-
 export function HelperForm () {
   const [seekerInfo, setSeekerInfo] = useState({ email: '', city: '', description: '', province: '', occupation: '', expdate: '', errors: "", success: "" })
   const [count, setCount] = useState(0);
@@ -15,6 +14,7 @@ export function HelperForm () {
     const { value, name } = e.target;
     setSeekerInfo({ ...seekerInfo, [name]: value })
   }
+
   const onSubmit = e => {
     const { expdate, city, province, occupation, description, errors, success } = seekerInfo;
     e.preventDefault();
@@ -23,9 +23,9 @@ export function HelperForm () {
       return
     } else {
       setSeekerInfo({ ...seekerInfo, success: "Congradulations your application has been accepted, Check your mail regularly", errors: "" })
-      history.push('/seekerdashboard')
       dispatch(addPost(seekerInfo))
       dispatch(getWorkerData(occupation))
+      history.push('/seekerdashboard')
     }
   }
   const setOccupation = e => {
@@ -78,7 +78,7 @@ export function HelperForm () {
           <input type="text" placeholder="Exp date YYYY-MM-DD" name="expdate" value={expdate} onChange={handleChange} /><br />
           <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
           <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
-          <input type="text" placeholder="Physical Address" name="province" value={province} onChange={handleChange} /><br />
+          <input type="text" placeholder="Province" name="province" value={province} onChange={handleChange} /><br />
           <input type="submit" />
         </form>
       </div>

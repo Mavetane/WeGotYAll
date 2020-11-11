@@ -21,7 +21,7 @@ values('Sammy', 'Samantha Stark', 'johannesburg', '233 walter street', 'sammy@gm
 CREATE TABLE postgres."Seekers".Plumbers
 (
   user_id serial PRIMARY KEY,
-  title VARCHAR (30) unique not NULL,
+  occupation VARCHAR (30) not NULL,
   username VARCHAR ( 50 ) UNIQUE NOT NULL,
   city VARCHAR (80) unique not NUll,
   description VARCHAR ( 350 ) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE postgres."Seekers".Plumbers
     default current_timestamp
 )
 INSERT INTO postgres."Seekers".Plumbers
-  (title, username, city, email, province)
+  (occupation, username, city, email, province)
 values('Plumber', 'Mavetane', 'johannesburg', 'sammy@gmail.com', 'Gauteng')
 
 

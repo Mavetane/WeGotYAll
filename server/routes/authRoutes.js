@@ -25,7 +25,8 @@ const authRoutes = (server) => {
         username, email, hashedPassword
       ])
       const token = jwtGenerator(newUser.rows[0].user_id)
-      res.json({ token })
+
+      res.json({ token: token, info: email })
 
     } catch (e) {
       console.error(e.message)
@@ -46,12 +47,14 @@ const authRoutes = (server) => {
         return res.json("Password or email is incorrect")
       }
       const token = jwtGenerator(user.rows[0].user_id);
-      res.json({ token });
+      res.json({ token: token, info: email });
     } catch (e) {
       console.error(e.message)
       res.send("Server Error")
     }
   })
+
+
 }
 
 module.exports = { authRoutes }
