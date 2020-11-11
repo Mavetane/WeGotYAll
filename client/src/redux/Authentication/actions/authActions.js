@@ -1,6 +1,8 @@
 import axios from 'axios';
 import history from '../../../routes/history';
+import jwt from "jwt-decode";
 import jwtDecode from "jwt-decode";
+
 import { LOG_OUT, HANDLE_AUTH, ADD_USER, GET_ERROR, SAVE_CODE } from './actionTypes';
 import emailjs from 'emailjs-com';
 
@@ -85,9 +87,11 @@ export const signin = (loginDetails) => {
         return
       }
       const decodedToken = jwtDecode(data.token)
+      const newToken = data.token
+      console.log('newToken',)
       dispatch({ type: "ADD_TOKEN", payload: decodedToken })
       dispatch({ type: "HANDLE_AUTH", payload: true })
-      dispatch({ type: "ADD_EMAIL", payload: data.info })
+      dispatch({ type: "ADD_USER", payload: data.info })
       localStorage.setItem("token", data.token)
       history.push('/dashboard')
     } catch (e) {

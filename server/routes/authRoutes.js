@@ -1,6 +1,7 @@
 const pool = require('../connection');
 const bcrypt = require('bcrypt');
 const { jwtGenerator } = require('../security/jwtGenerator');
+const jwt = require('jsonwebtoken')
 
 require('dotenv').config();
 
@@ -36,7 +37,7 @@ const authRoutes = (server) => {
   //logIn
 
   server.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, username } = req.body;
     try {
       const user = await pool.query(`SELECT * FROM "Authentication/Authorization".users WHERE email = $1`, [email])
       if (user.rows.length === 0) {
@@ -47,7 +48,8 @@ const authRoutes = (server) => {
         return res.json("Password or email is incorrect")
       }
       const token = jwtGenerator(user.rows[0].user_id);
-      res.json({ token: token, info: email });
+      const info = user.rows[0]
+      res.json({ token: token, info: info });
     } catch (e) {
       console.error(e.message)
       res.send("Server Error")

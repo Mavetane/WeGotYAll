@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { sendEmail } from '../../redux/Authentication/actions/authActions';
 
 
+
 export function SeekerDashboard () {
   const workersInfo = useSelector(state => state.seekers.workersInfo);
-  const seekerEmail = useSelector(state => state.auth.user.userEmail)
+  const seekerEmail = useSelector(state => state.auth.user.email)
 
 
   console.log('seekerEmail', seekerEmail)
@@ -20,7 +21,6 @@ export function SeekerDashboard () {
       'user_N17JPIiunsJWIe7FD2eQd')}>Request Worker</button>
   </div >)
 
-  console.log('workersInfo', workersInfo)
   return (
     <div>
       <header className="App-header">

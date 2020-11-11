@@ -6,22 +6,23 @@ export const reloadWindow = () => {
 }
 
 export const addWorkerPost = (postData) => {
-  const name = store.getState().auth.state.user.username;
-  const newEmail = store.getState().auth.state.user.email;
-
+  const name = store.getState().auth.user.username;
+  const newEmail = store.getState().auth.user.email;
+  const table = postData.occupation;
+  const sanitizedPost = {
+    occupation: postData.occupation,
+    username: name,
+    city: postData.city,
+    description: postData.description,
+    email: newEmail,
+    province: postData.province
+  }
   return async (dispatch) => {
-    const table = postData.occupation;
-    const sanitizedPost = {
-      occupation: postData.occupation,
-      username: name,
-      city: postData.city,
-      description: postData.description,
-      email: newEmail,
-      province: postData.province
-    }
     try {
       const { occupation, username, city, description, email, province } = sanitizedPost
-      return await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Workers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
+      await axios.get(`http://localhost:9000/queries?sql=INSERT INTO "Workers".${table} (occupation, username, city,description, email, province) values('${occupation}','${username}','${city}','${description}','${email}','${province}')`)
+      dispatch({ type: "ADD_WORKER_POST", payload: sanitizedPost })
+      reloadWindow()
     } catch (e) {
       console.log(e)
     }
