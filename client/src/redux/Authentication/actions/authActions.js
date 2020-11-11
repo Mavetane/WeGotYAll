@@ -37,7 +37,7 @@ export const generateCode = (signUpDetails) => {
       }
       const { templateId, senderEmail, receiverEmail, feedback, user } = emailData;
       console.log("Email Sent")
-      // sendEmail(templateId, senderEmail, receiverEmail, feedback, user)
+      sendEmail(templateId, senderEmail, receiverEmail, feedback, user)
     } catch (e) {
       console.log(e);
     }

@@ -76,7 +76,7 @@ export function WorkerForm () {
             <input type="checkbox" onClick={setOccupation} value="dogwalkers" name="dogwalkers" /><label>DogWalker</label><br />
             <input type="checkbox" onClick={setOccupation} value="handymen" name="handymen" /><label>HandyMan/HandyWoman</label><br />
             <input type="checkbox" onClick={setOccupation} value="maids" name="maids" /><label>Maid</label><br />
-            <input type="checkbox" onClick={setOccupation} value="plumbers" name="plumbers" /><label>Plumber</label><br />
+            <input type="checkbox" onClick={setOccupation} value="plumber" name="plumbers" /><label>Plumber</label><br />
           </div>}
         <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
         <input type="text" placeholder="Full names" name="names" value={names} onChange={handleChange} /><br />
