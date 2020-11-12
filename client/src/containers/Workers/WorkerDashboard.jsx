@@ -27,9 +27,10 @@ export function WorkerDashboard () {
           <a href="/">LogOut</a>
         </div>
       </header>
-      <div style={{ border: 'insert' }}>
-        {seekers()}
-      </div>
+      {seekersInfo == null ? <div>Looks like there are no posts yet, reload to make sure or visit again later</div> :
+        <div style={{ border: 'insert' }}>
+          {seekers()}
+        </div>}
     </div>
   )
 }

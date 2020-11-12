@@ -40,23 +40,23 @@ export function CodeForm () {
 
   return (
     <div>
-      <div>
-        <h2>Welcome You're almost there! Open your mail and copy the verification code. Remeber to check your spam folder</h2>
-      </div>
-      <div>
-        <label>{verifcationCode.success}</label>
-        <label>{verifcationCode.errors}</label>
-      </div>
-      <div>
-        <h3>Help us set your platform before you get there, clik on the box if you are looking for a job or leave it blank if your looking for help.</h3>
-        <input type="checkbox" onClick={handleOccupation} />
-        <h4>Looking for Work?</h4>
-      </div>
-      <div className="div">
-        <form onSubmit={(e) => onSubmit(e)}>
-          <input type="number" onChange={handleChange} value={verifcationCode.input} name="input" placeholder="Your code here " />
-          <input type="submit" />
-        </form>
+      <h2>Welcome You're almost there! Open your mail and copy the verification code. Remeber to check your spam folder</h2>
+      <div className="code-wrapper">
+        <div>
+          <label>{verifcationCode.success}</label>
+          <label>{verifcationCode.errors}</label>
+        </div>
+        <div>
+          <h3>Help us set your platform before you get there, clik on the box if you are looking for a job or leave it blank if your looking for help.</h3>
+          <input type="checkbox" onClick={handleOccupation} />
+          <h4>Looking for Work?</h4>
+        </div>
+        <div className="div">
+          <form onSubmit={(e) => onSubmit(e)}>
+            <input type="number" onChange={handleChange} value={verifcationCode.input} name="input" placeholder="Your code here " />
+            <input type="submit" />
+          </form>
+        </div>
       </div>
     </div>
   )

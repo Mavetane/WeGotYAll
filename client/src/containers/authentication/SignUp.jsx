@@ -28,23 +28,25 @@ export function SignUp () {
     <div>
       <header className="App-header">
         <h3>SignUp</h3>
-      </header>      <div>
-        <p style={errorStyle}>{errors}</p>
+      </header>
+      <div className="signin-wrapper">
+        <div className="div">
+          <div>
+            <p style={errorStyle}>{errors}</p>
+          </div>
+          <form onSubmit={onSubmit}>
+            <label for="fname">Username</label>
+            <input type="text" placeholder="Username" onChange={handleChange} value={username} name="username" />
+
+            <label for="lname">Email</label>
+            <input type="email" placeholder="Email" onChange={handleChange} value={email} name="email" />
+
+            <label for="lname">Password</label>
+            <input type="password" placeholder="Password" onChange={handleChange} value={password} name="password" /><br />
+            <input type="submit" />
+          </form>
+        </div>
       </div>
-      <div className="div">
-        <form onSubmit={onSubmit}>
-          <label for="fname">Username</label>
-          <input type="text" placeholder="Username" onChange={handleChange} value={username} name="username" />
-
-          <label for="lname">Email</label>
-          <input type="email" placeholder="Email" onChange={handleChange} value={email} name="email" />
-
-          <label for="lname">Password</label>
-          <input type="password" placeholder="Password" onChange={handleChange} value={password} name="password" /><br />
-          <input type="submit" />
-        </form>
-      </div>
-
     </div>
   )
 }

@@ -29,9 +29,10 @@ export function SeekerDashboard () {
       </header>
       <div className="seeker-container">
         <h3>Here are available workers that meet your catergory.</h3>
-        <div>
-          {workers()}
-        </div>
+        {workersInfo == null ? <div>Looks like there are no posts yet, reload to make sure or visit again later</div> :
+          <div>
+            {workers()}
+          </div>}
       </div>
     </div>
   )

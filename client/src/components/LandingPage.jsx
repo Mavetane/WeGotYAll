@@ -13,8 +13,8 @@ export function LandingPage () {
       </header>
       <div className="intro-wrapper">
         <p>Here at <strong>We Got Y'All</strong> we only offer two services, mind due we are a very small community.
-        Nevertheless we specify in blue collar jobs and connecting workers with the their employers and vice versa in a few simple clicks.
-         <a href="/signin">signin</a> if your new or just <a href="/signin">login</a> if you are already a member</p>
+        Nevertheless we specify in blue collar jobs and connecting workers with the their employers and vice versa in a few simple
+        clicks. <a href="/signin">signin</a> if your new or just <a href="/signin">login</a> if you are already a member</p>
       </div>
     </div>
   )

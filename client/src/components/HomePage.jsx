@@ -8,15 +8,14 @@ export function HomePage () {
   const handleLogOut = () => {
     dispatch(logout())
   }
-  console.log('userInfo', userInfo)
   return (
     <div>
-      <header className="homepage-header">
+      <header className="App-header">
         <h3>Home</h3>
-        <div className="home-div">
+        <div className="log-div">
           <a href="/workerform">SearchJobs</a>
           <a href="/seekerform">SeekWorker</a>
-          <a onClick={handleLogOut}>LogOut</a>
+          <a onClick={handleLogOut} href="/">LogOut</a>
         </div>
       </header>
 

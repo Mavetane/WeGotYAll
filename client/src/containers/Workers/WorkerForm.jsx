@@ -56,35 +56,50 @@ export function WorkerForm () {
   const { names, city, physicalAddress, description, province, occupation, errors, success } = workerInfo;
 
   return (
-    <div>
-      <div>
-        <h3>
-          Let's get to know you better as a worker, please fill the form below to make employers understand a little about you.
+    <div className="workerForm-container">
+      <h3>
+        Let's get to know you better as a worker, please fill the form below to make employers understand a little about you.
         </h3>
+      <div className="div">
+        <div>
+          <p style={errorStyle}>{errors}</p>
+        </div>
+        <div>
+          <p style={successStyle}>{success}</p>
+        </div>
+        <form onSubmit={onSubmit}>
+          <button onClick={toggle}>occupation</button><br />
+          {!occupationStatus ? null :
+            <div>
+              <label>BabySitter
+                <input type="checkbox" onClick={setOccupation} value={occupation} name="babysitters" />
+                <span className="checkmark"></span>
+              </label><br />
+              <label>DogWalker
+                <input type="checkbox" onClick={setOccupation} value={occupation} name="dogwalkers" />
+                <span className="checkmark"></span>
+              </label><br />
+              <label>HandyMan/HandyWoman
+                <input type="checkbox" onClick={setOccupation} value={occupation} name="handymen" />
+                <span className="checkmark"></span>
+              </label><br />
+              <label>Maid
+                <input type="checkbox" onClick={setOccupation} value={occupation} name="maids" />
+                <span className="checkmark"></span>
+              </label><br />
+              <label>Plumber
+                <input type="checkbox" onClick={setOccupation} value={occupation} name="plumbers" />
+                <span className="checkmark"></span>
+              </label>
+            </div>}
+          <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
+          <input type="text" placeholder="Full names" name="names" value={names} onChange={handleChange} /><br />
+          <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
+          <input type="text" placeholder="Physical Address" name="physicalAddress" value={physicalAddress} onChange={handleChange} /><br />
+          <input type="text" placeholder="Province" name="province" value={province} onChange={handleChange} /><br />
+          <input type="submit" />
+        </form>
       </div>
-      <div>
-        <p style={errorStyle}>{errors}</p>
-      </div>
-      <div>
-        <p style={successStyle}>{success}</p>
-      </div>
-      <form onSubmit={onSubmit}>
-        <button onClick={toggle}>Title</button><br />
-        {!occupationStatus ? null :
-          <div>
-            <input type="checkbox" onClick={setOccupation} value="babysitters" name="babysitters" /><label>BabySitter</label><br />
-            <input type="checkbox" onClick={setOccupation} value="dogwalkers" name="dogwalkers" /><label>DogWalker</label><br />
-            <input type="checkbox" onClick={setOccupation} value="handymen" name="handymen" /><label>HandyMan/HandyWoman</label><br />
-            <input type="checkbox" onClick={setOccupation} value="maids" name="maids" /><label>Maid</label><br />
-            <input type="checkbox" onClick={setOccupation} value="plumber" name="plumbers" /><label>Plumber</label><br />
-          </div>}
-        <input type="text" placeholder="Description" name="description" value={description} onChange={handleChange} /><br />
-        <input type="text" placeholder="Full names" name="names" value={names} onChange={handleChange} /><br />
-        <input type="text" placeholder="City" name="city" value={city} onChange={handleChange} /><br />
-        <input type="text" placeholder="Physical Address" name="physicalAddress" value={physicalAddress} onChange={handleChange} /><br />
-        <input type="text" placeholder="Province" name="province" value={province} onChange={handleChange} /><br />
-        <input type="submit" />
-      </form>
     </div>
   )
 }
