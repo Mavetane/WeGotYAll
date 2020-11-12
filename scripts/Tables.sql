@@ -4,6 +4,25 @@ CREATE SCHEMA Authentication
 CREATE SCHEMA Seekers;
 CREATE SCHEMA Workers;
 
+CREATE TABLE postgres."Authentication".users
+(
+  user_id serial PRIMARY KEY,
+  username VARCHAR ( 225 ) UNIQUE NOT NULL,
+  email VARCHAR (225) unique not NUll,
+  password VARCHAR ( 255 ) NOT NULL,
+  timestamp timestamp
+    default current_timestamp
+);
+CREATE TABLE "Authentication".users
+(
+  user_id serial PRIMARY KEY,
+  username VARCHAR (225) unique not NULL,
+  password VARCHAR (225) not NULL,
+  timpestamp timestamp
+    default current_timestamp
+);
+
+
 
 CREATE TABLE postgres."Workers".DogWalkers
 (
