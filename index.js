@@ -10,7 +10,7 @@ const server = express()
 server.use(express.json())
 
 if (process.env.NODE_ENV == "production") {
-  server.use(express.static(path.joing(__dirname, "client/build")))
+  server.use(express.static(path.join(__dirname, "client/build")))
 }
 
 
