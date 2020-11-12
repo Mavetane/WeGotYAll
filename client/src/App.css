@@ -13,8 +13,17 @@
   }
 }
 
+.App-header>h3 {
+  padding: 0px 80% 0px 5%;
+  color: #212121;
+}
+
+.App-header>h3:hover {
+  cursor: pointer;
+}
+
 .App-header {
-  background-color: #e66123;
+  display: flex;
   min-height: 9vh;
   display: flex;
   flex-direction: column;
@@ -26,15 +35,32 @@
   font-family: 'Paytone One', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.intro-wrapper {
+  margin: 20% 25% 0px 25%;
+  background-color: lightblue;
+  opacity: 0.8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.intro-wrapper>p {
+  color: #212121;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.log-div>a {
+  padding: 5%;
+  font-size: 25px;
+  color: white;
+}
+
+.log-div>a:hover {
+  padding: 5%;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.log-div {
+  display: flex;
+  padding: 0% 0% 10% 65%;
+  margin-top: -5%;
 }

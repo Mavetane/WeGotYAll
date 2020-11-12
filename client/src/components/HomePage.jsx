@@ -12,7 +12,7 @@ export function HomePage () {
   return (
     <div>
       <header className="homepage-header">
-        Home
+        <h3>Home</h3>
         <div className="home-div">
           <a href="/workerform">SearchJobs</a>
           <a href="/seekerform">SeekWorker</a>
