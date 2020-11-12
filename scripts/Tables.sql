@@ -1,4 +1,8 @@
 ALTER TABLE "Workers".nannies RENAME TO maids;
+CREATE SCHEMA Authentication
+/Authorization;
+CREATE SCHEMA Seekers;
+CREATE SCHEMA Workers;
 
 
 CREATE TABLE postgres."Workers".DogWalkers
