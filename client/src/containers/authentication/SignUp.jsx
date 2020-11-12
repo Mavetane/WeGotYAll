@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { generateCode } from '../../redux/Authentication/actions/authActions';
 import history from '../../routes/history';
 import { errorStyle, successStyle } from '../../containers/Seekers/HelperForm';

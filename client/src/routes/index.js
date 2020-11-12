@@ -1,7 +1,7 @@
 import React from "react";
 import { Router } from 'react-router-dom';
 import history from "./history";
-import { PublicRoute, PrivateRoute } from '../routes/routesManager';
+import { PublicRoute } from '../routes/routesManager';
 import { WorkerForm } from '../containers/Workers/WorkerForm';
 import { WorkerDashboard } from '../containers/Workers/WorkerDashboard';
 import { HelperForm } from '../containers/Seekers/HelperForm';

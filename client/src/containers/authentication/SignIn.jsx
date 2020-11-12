@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { errorStyle, successStyle } from '../../containers/Seekers/HelperForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { signin } from '../../redux/Authentication/actions/authActions';
-import history from '../../routes/history';
 
 
 

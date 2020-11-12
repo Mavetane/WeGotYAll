@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { sendEmail } from '../../redux/Authentication/actions/authActions';
 
 export function WorkerDashboard () {

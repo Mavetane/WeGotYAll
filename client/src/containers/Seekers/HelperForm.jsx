@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import history from '../../routes/history';
 import { addPost, getWorkerData } from '../../redux/Seekers/actions/seekerActions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 export function HelperForm () {

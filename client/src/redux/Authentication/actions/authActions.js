@@ -1,6 +1,5 @@
 import axios from 'axios';
 import history from '../../../routes/history';
-import jwt from "jwt-decode";
 import jwtDecode from "jwt-decode";
 
 import { LOG_OUT, HANDLE_AUTH, ADD_USER, GET_ERROR, SAVE_CODE } from './actionTypes';
